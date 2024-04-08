@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Magic 8 Ball</title>
+    <style>
+        body {
+            background-color: darkviolet;
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-family: 'Courier New', Courier, monospace;">Magic 8 Ball</h1>
+    <p style="font-family: 'Courier New', Courier, monospace;">Enter your question here, and we shall give you an answer (yes or no questions)</p>
+    <input type="text" id="questionInput" placeholder="Enter your question..."></input>
+    <button id="submitButton" style="color: cornflowerblue; background-color: blueviolet;">Submit</button>
+
+    <p id="answer"></p>
+
+    <script>
+        document.getElementById('submitButton').addEventListener('click', function() {
+            var words = ['Nope', 'Yep', 'It\'s certain', 'Maybe idk', 'Probably', 'Nu uh', 'Don\'t think so', 'Yes 100%', 'Maybe...', 'Try again idk', 'Won\'t happen', 'Shouldn\'t tell you that right now', 'Sorry, try again', 'Mhm yes', 'No', 'Probably not', 'Idk'];
+            var para = document.getElementById('answer');
+            para.textContent = words[Math.floor(Math.random() * words.length)];
+        });
+    </script>
+    <a href="game.html"><button>Go back</button></a>
+</body>
+</html>

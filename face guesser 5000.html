@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Face Predictor 5000</title>
+    <style>
+        head {
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+        }
+        body {
+            font-family:'Courier New', Courier, monospace;
+            text-align: center;
+            background-color:darkorange;
+        }
+    </style>
+</head>
+<body>
+    <h1>What does your face look like?</h1>
+    <p>Welcome to the face predictor 5000, where we determine what your face looks like</p>
+    
+    <form id="quizForm">
+        <p>Q1: Do you have a beard?</p>
+        <input type="radio" name="a" value="Yes">Yes
+        <input type="radio" name="a" value="No">No
+
+        <p>Q2: What colour eyes do you have?</p>
+        <input type="radio" name="b" value="Red">Red somehow
+        <input type="radio" name="b" value="Blue">Blue
+        <input type="radio" name="b" value="Green">Green
+        <input type="radio" name="b" value="Brown">Brown
+        <input type="radio" name="b" value="Grey">Grey (you're rare)
+
+        <p>Q3: What colour hair do you have?</p>
+        <input type="radio" name="c" value="Red">Red 
+        <input type="radio" name="c" value="Blue">Blue
+        <input type="radio" name="c" value="Green">Green
+        <input type="radio" name="c" value="Brown">Brown
+        <input type="radio" name="c" value="Grey">Grey (you're old)
+        <input type="radio" name="c" value="your mom">Blonde
+        <input type="radio" name="c" value="idk man">Black
+
+        <p>Q4: Do you have glasses?</p>
+        <input type="radio" name="d" value="Yes">Yes
+        <input type="radio" name="d" value="No">No
+
+        <p>Q5: Do you have freckles?</p>
+        <input type="radio" name="e" value="Yes">Yes
+        <input type="radio" name="e" value="No">No
+
+        <p>Q6: Do you have a mustache?</p>
+        <input type="radio" name="f" value="Yes">Yes
+        <input type="radio" name="f" value="No">No
+
+        <p>Q7: What's the colour of your skin?</p>
+        <input type="radio" name="g" value="Dark">Dark
+        <input type="radio" name="g" value="Slightly dark">Slightly dark
+        <input type="radio" name="g" value="Mixed">Mixed
+        <input type="radio" name="g" value="White">White
+        <input type="radio" name="g" value="Whitest">Whitest
+        <input type="radio" name="g" value="Whiter than explainable">Whiter than explainable
+
+        <br><br>
+        <button type="button" onclick="checkAnswers()">Submit</button>
+    </form>
+
+    <div id="imageContainer" style="display: none;">
+        <img src="https://th.bing.com/th/id/OIF.EhOhoZC6DOKbhxfrDga0IQ?w=151&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Face Image" height="300" width="700">
+        <p id="resultMessage" style="font-size: 18px; font-weight: bold; margin-top: 20px;"></p>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            var inputs = document.querySelectorAll('#quizForm input[type="radio"]:checked');
+            var allAnswered = inputs.length === 7;
+            if (allAnswered) {
+                document.getElementById('imageContainer').style.display = 'block';
+                document.getElementById('resultMessage').innerText = "According to our calculations, you look like this:";
+            }
+        }
+    </script>        
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <style>
+        body {
+            background-color: aquamarine;
+            color: blue;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+    <h1 style="font-family: 'Courier New', Courier, monospace;">Friendship Calculator</h1>
+    <p>Q1: Do they get on your nerves?</p>
+    <input type="radio" name="a" value="Yes" onclick="updateScoreQ1(this)"> Yes
+    <input type="radio" name="a" value="No" onclick="updateScoreQ1(this)"> No
+    <p>Q2: Do they leave a call with a lame excuse</p>
+    <input type="radio" name="b" value="Yes" onclick="updateScoreQ2(this)"> Yes
+    <input type="radio" name="b" value="No" onclick="updateScoreQ2(this)"> No
+    <input type="radio" name="b" value="Sometimes" onclick="updateScoreQ2(this)"> Sometimes
+    <p>Q3: Do they listen to you</p>
+    <input type="radio" name="c" value="Yes" onclick="updateScoreQ3(this)"> Yes
+    <input type="radio" name="c" value="No" onclick="updateScoreQ3(this)"> No
+    <p>Q4: Do they talk to you a lot?</p>
+    <input type="radio" name="d" value="Yes" onclick="updateScoreQ4(this)"> Yes
+    <input type="radio" name="d" value="No" onclick="updateScoreQ4(this)"> No
+    <input type="radio" name="d" value="Obsessively" onclick="updateScoreQ4(this)"> Obsessively
+    <input type="radio" name="d" value="Not too much" onclick="updateScoreQ4(this)"> Not too much
+    <p>Q5: Do they work with you in school if it's a group project</p>
+    <input type="radio" name="e" value="Yes" onclick="updateScoreQ5(this)"> Yes
+    <input type="radio" name="e" value="No" onclick="updateScoreQ5(this)"> No
+    <input type="radio" name="e" value="Sometimes" onclick="updateScoreQ5(this)"> Sometimes
+    <p id="score"></p>
+    <a href="game.html"><button>Go back</button></a>
+    <script>
+        let score = 0;
+
+        function updateScoreQ1(radio) {
+            if (radio.checked && radio.value === "No" && score < 5) {
+                score++;
+                displayScore();
+            }
+        }
+
+        function updateScoreQ2(radio) {
+            if (radio.checked && radio.value !== "Yes" && score < 5) {
+                score++;
+                displayScore();
+            }
+        }
+
+        function updateScoreQ3(radio) {
+            if (radio.checked && radio.value === "Yes" && score < 5) {
+                score++;
+                displayScore();
+            }
+        }
+
+        function updateScoreQ4(radio) {
+            if (radio.checked && (radio.value === "Yes" || radio.value === "Obsessively") && score < 5) {
+                score++;
+                displayScore();
+            }
+        }
+
+        function updateScoreQ5(radio) {
+            if (radio.checked && radio.value !== "No" && score < 5) {
+                score++;
+                displayScore();
+            }
+        }
+
+        function displayScore() {
+            const scoreElement = document.getElementById("score");
+            scoreElement.textContent = `Your score: ${score} out of 5!`;
+        }
+    </script>
+</body>
+</html>
