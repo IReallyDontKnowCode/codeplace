@@ -50,11 +50,6 @@
                 ',' + Math.round(Math.random() * 255) + ')';
         }
 
-        function playAudio() {
-            const audio = new Audio();
-            audio.src = "./Beethoven.mp3.mp4"; 
-            audio.play();
-        }
 
         function showImage() {
             var overlay = document.getElementById('overlay');
