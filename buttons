@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buttons</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: white;
+            text-align: center;
+            background-color: greenyellow;
+        }
+
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(255, 255, 255);
+            z-index: 9999; 
+        }
+
+        #overlay img {
+            display: block;
+            margin: auto;
+            max-width: 99%;
+            max-height: 99%;
+            margin-top: 5%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Buttons.</h1>
+    <a href="game.html"><button style="width: 100px; height: auto;">Go back</button></a>
+    <a href="https://th.bing.com/th?id=OIP.9tazLqqXpXiM0eTBd7bWqwHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2">
+    <button style="background-color: chartreuse;width: 100px; height: auto;">Shrek</button></a>
+    <button onclick="changeColor()" style="background-color: darkviolet; width: 100px; height: auto;">Color</button>
+    <button onclick="playAudio()" style="background-color: brown; width: 100px; height: auto;">Beethoven</button>
+    <button onclick="showImage()" style="background-color: red; width: 100px; height: auto;">Explode</button>
+    <div id="overlay">
+        <img src="https://th.bing.com/th/id/OIP.qvffs3jYvtN70PzfBDBv2wHaFx?rs=1&pid=ImgDetMain" alt="explode">
+    </div>
+
+    <script>
+        function changeColor() {
+            document.body.style.backgroundColor =
+                'rgb(' + Math.round(Math.random() * 255) +
+                ',' + Math.round(Math.random() * 255) +
+                ',' + Math.round(Math.random() * 255) + ')';
+        }
+
+        function playAudio() {
+            const audio = new Audio();
+            audio.src = "./Beethoven.mp3.mp4"; 
+            audio.play();
+        }
+
+        function showImage() {
+            var overlay = document.getElementById('overlay');
+            overlay.style.display = 'block';
+        }
+
+        function playEffect() {
+            const audio = new Audio();
+            audio.src = "./videoplayback.mp4"; // adjust the path to your audio file
+            audio.play();
+        }
+
+        function disappearNow() {
+            var button = document.getElementById('disappearNow'); // Corrected the function name and the id
+            button.style.display = 'none';
+        }
+    </script>
+    <button style="background-color: white; width: 100px; height: auto;">Does Nothing</button>
+    <button onclick="playEffect()" style="background-color: yellow; width: 100px; height: auto;">McDonald's</button>
+    <button onclick="disappearNow()" id="disappearNow" style="background-color:gray; width: 100px; height: auto;">Poof</button>
+    <p style="font-family: 'Courier New', Courier, monospace;">will add more later sometime idk</p>
+</body>
+</html>
