@@ -17,7 +17,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgb(255, 255, 255);
+            background-color: rgba(255, 255, 255, 0.7); /* semi-transparent white */
             z-index: 9999; 
         }
 
@@ -28,18 +28,57 @@
             max-height: 99%;
             margin-top: 5%;
         }
+
+        #explosionOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            display: none;
+        }
+        /* Adjusted style for the image overlays */
+        #jailOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10000; /* Higher z-index to ensure it's above other elements */
+            display: none;
+        }
+                /* Add margin between buttons */
+                button {
+            margin-bottom: 10px; /* Adjust as needed */
+        }
     </style>
 </head>
 <body>
     <h1>Buttons.</h1>
+    <p>some random stuff</p>
     <a href="game.html"><button style="width: 100px; height: auto;">Go back</button></a>
     <a href="https://th.bing.com/th?id=OIP.9tazLqqXpXiM0eTBd7bWqwHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2">
     <button style="background-color: chartreuse;width: 100px; height: auto;">Shrek</button></a>
     <button onclick="changeColor()" style="background-color: darkviolet; width: 100px; height: auto;">Color</button>
     <button onclick="playAudio()" style="background-color: brown; width: 100px; height: auto;">Beethoven</button>
-    <button onclick="showImage()" style="background-color: red; width: 100px; height: auto;">Explode</button>
-    <div id="overlay">
-        <img src="https://th.bing.com/th/id/OIP.qvffs3jYvtN70PzfBDBv2wHaFx?rs=1&pid=ImgDetMain" alt="explode">
+    <button onclick="showExplosionImage()" style="background-color: red; width: 100px; height: auto;">Explode</button>
+    <div id="explosionOverlay">
+        <img src="https://th.bing.com/th/id/R.7f33d71bb98c6a589aa7ac1b38a3971e?rik=I2LVttVuXQdSTQ&pid=ImgRaw&r=0" alt="explode">
+    </div>
+    <button style="background-color: white; width: 100px; height: auto;">Does Nothing</button>
+    <button onclick="playEffect()" style="background-color: yellow; width: 100px; height: auto;">McDonald's</button>
+    <button onclick="disappearNow()" id="disappearNow" style="background-color:gray; width: 100px; height: auto;">Poof</button>
+    <a href="https://www.bankofamerica.com"><button style="background-color:forestgreen; width: 100px; height: auto;">MONEY!!!!</button></a>
+    <button style="background-color: lightslategray; width: 100px; height: auto;" onclick="goJail()" id="button2">Go to jail :(</button>
+    <p>plugs</p>
+    <a href="https://thatoneguyontheinternet.github.io/gamesthatarecool/"><button style="background-color: blue"; width: 100px; height: auto;>Friends website!1!1!1</button></a>
+    <a href="https://discord.gg/4ZwrfUXR"><button style="background-color: purple"; width: 100px; height: auto;>Join the Discord!</button></a>
+    <a href="https://youtube.com/@lord.banana."><button style="background-color:crimson; width: 150px; height: auto;">Mah Youtube Channel</button></a>
+    <button></button>
+    <p style="font-family: 'Courier New', Courier, monospace;">will add more later sometime idk</p>
+    <div id="jailOverlay">
+        <img src="https://www.pngmart.com/files/16/Metal-Jail-Bars-PNG-Photos-420x220.png" height="1000px" width="auto" alt="jail :(">
     </div>
 
     <script>
@@ -56,9 +95,9 @@
             audio.play();
         }
 
-        function showImage() {
-            var overlay = document.getElementById('overlay');
-            overlay.style.display = 'block';
+        function showExplosionImage() {
+            var explosionOverlay = document.getElementById('explosionOverlay');
+            explosionOverlay.style.display = 'block';
         }
 
         function playEffect() {
@@ -68,13 +107,14 @@
         }
 
         function disappearNow() {
-            var button = document.getElementById('disappearNow'); // Corrected the function name and the id
+            var button = document.getElementById('disappearNow');
             button.style.display = 'none';
         }
+
+        function goJail() {
+            var jailOverlay = document.getElementById('jailOverlay');
+            jailOverlay.style.display = 'block';
+        }
     </script>
-    <button style="background-color: white; width: 100px; height: auto;">Does Nothing</button>
-    <button onclick="playEffect()" style="background-color: yellow; width: 100px; height: auto;">McDonald's</button>
-    <button onclick="disappearNow()" id="disappearNow" style="background-color:gray; width: 100px; height: auto;">Poof</button>
-    <p style="font-family: 'Courier New', Courier, monospace;">will add more later sometime idk</p>
 </body>
 </html>
