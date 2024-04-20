@@ -3,86 +3,89 @@
 <head>
     <title>Buttons</title>
     <style>
+        button {
+            cursor: pointer;
+            text-align: center;
+            font-size: 25px;
+            height: auto;
+        }
         body {
             font-family: 'Courier New', Courier, monospace;
-            background-color: white;
-            text-align: center;
             background-color: greenyellow;
+            text-align: center;
         }
 
-        #overlay {
+        
+        #explosionOverlay, #jailOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10000;
             display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.7); /* semi-transparent white */
-            z-index: 9999; 
         }
 
-        #overlay img {
-            display: block;
-            margin: auto;
-            max-width: 99%;
-            max-height: 99%;
-            margin-top: 5%;
+        
+        button {
+            margin-bottom: 10px;
         }
 
-        #explosionOverlay {
+        
+        .clickedImage {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
             z-index: 9999;
-            display: none;
-        }
-        /* Adjusted style for the image overlays */
-        #jailOverlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 10000; /* Higher z-index to ensure it's above other elements */
-            display: none;
-        }
-                /* Add margin between buttons */
-                button {
-            margin-bottom: 10px; /* Adjust as needed */
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
     <h1>Buttons.</h1>
     <p>some random stuff</p>
-    <a href="game.html"><button style="width: 100px; height: auto;">Go back</button></a>
+    <a href="game.html"><button style="font-size: 25px; height: auto;">Go back</button></a>
     <a href="https://th.bing.com/th?id=OIP.9tazLqqXpXiM0eTBd7bWqwHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2">
-    <button style="background-color: chartreuse;width: 100px; height: auto;">Shrek</button></a>
-    <button onclick="changeColor()" style="background-color: darkviolet; width: 100px; height: auto;">Color</button>
-    <button onclick="playAudio()" style="background-color: brown; width: 100px; height: auto;">Beethoven</button>
-    <button onclick="showExplosionImage()" style="background-color: red; width: 100px; height: auto;">Explode</button>
+    <button style="background-color: chartreuse; font-size: 25px; height: auto;" id="yourButtonId">Shrek</button></a>
+    <button onclick="changeColor()" style="background-color: darkviolet; font-size: 25px; height: auto;" id="yourButtonId">Color</button>
+    <button onclick="playAudio()" style="background-color: brown; font-size: 25px; height: auto;" id="yourButtonId">Beethoven</button>
+    <button onclick="showExplosionImage()" style="background-color: red; font-size: 25px; height: auto;" id="yourButtonId">Explode</button>
     <div id="explosionOverlay">
         <img src="https://th.bing.com/th/id/R.7f33d71bb98c6a589aa7ac1b38a3971e?rik=I2LVttVuXQdSTQ&pid=ImgRaw&r=0" alt="explode">
     </div>
-    <button style="background-color: white; width: 100px; height: auto;">Does Nothing</button>
-    <button onclick="playEffect()" style="background-color: yellow; width: 100px; height: auto;">McDonald's</button>
-    <button onclick="disappearNow()" id="disappearNow" style="background-color:gray; width: 100px; height: auto;">Poof</button>
-    <a href="https://www.bankofamerica.com"><button style="background-color:forestgreen; width: 100px; height: auto;">MONEY!!!!</button></a>
-    <button style="background-color: lightslategray; width: 100px; height: auto;" onclick="goJail()" id="button2">Go to jail :(</button>
+    <button style="background-color: white; font-size: 25px; height: auto;" id="yourButtonId">Does Nothing</button>
+    <button onclick="playEffect()" style="background-color: yellow; font-size: 25px; height: auto;" id="yourButtonId">McDonald's</button>
+    <button onclick="disappearNow()" id="disappearNow" style="background-color:gray; font-size: 25px; height: auto;">Poof</button>
+    <a href="https://www.bankofamerica.com"><button style="background-color:forestgreen; font-size: 25px; height: auto;" id="yourButtonId">MONEY!!!!</button></a>
+    <button style="background-color: lightslategray; font-size: 25px; height: auto;" onclick="goJail()" id="yourButtonId">Go to jail :(</button>
+    <button style="background-color:deepskyblue; font-size: 25px; height: auto;" onclick="becomeStrong()" id="yourButtonId">Become STRONG!</button>
+    <button onclick="getHurt()" id="myButton" style="background-color: rgb(0, 0, 0); color: white;">Don't click me</button>
+    <button onclick="showAd()" style="background-color:deeppink; width:100px; height:auto;" id="yourButtonId">popups</button>
+    <button onclick="lightsOut()" style="background-color:rgb(255, 255, 255); font-size: 25px; height: auto;" id="yourButtonId">Lights out</button>
+    <button onclick="randomSound()" style="background-color:rgba(255, 153, 0, 0.537); width:200px; height:auto;">Random sounds</button>
     <p>plugs</p>
-    <a href="https://thatoneguyontheinternet.github.io/gamesthatarecool/"><button style="background-color: blue"; width: 100px; height: auto;>Friends website!1!1!1</button></a>
-    <a href="https://discord.gg/4ZwrfUXR"><button style="background-color: purple"; width: 100px; height: auto;>Join the Discord!</button></a>
-    <a href="https://youtube.com/@lord.banana."><button style="background-color:crimson; width: 150px; height: auto;">Mah Youtube Channel</button></a>
-    <button></button>
+    <a href="https://thatoneguyontheinternet.github.io/gamesthatarecool/"><button style="background-color: blue; font-size: 25px; height: auto;">Friends website!1!1!1</button></a>
+    <a href="https://discord.gg/4ZwrfUXR"><button style="background-color: purple; font-size: 25px; height: auto;">Join the Discord!</button></a>
+    <a href="https://youtube.com/@lord.banana."><button style="background-color:crimson; font-size: 25px; width: 300px; height: auto;">Mah Youtube Channel</button></a>
     <p style="font-family: 'Courier New', Courier, monospace;">will add more later sometime idk</p>
     <div id="jailOverlay">
         <img src="https://www.pngmart.com/files/16/Metal-Jail-Bars-PNG-Photos-420x220.png" height="1000px" width="auto" alt="jail :(">
     </div>
-
     <script>
-        function changeColor() {
+function handleClick(event) {
+    var x = event.pageX;
+    var y = event.pageY;
+    var img = document.createElement('img');
+    img.src = 'hole.png';
+    img.className = 'clickedImage';
+    img.style.position = 'absolute';
+    img.style.left = (x - 12) + 'px';
+    img.style.top = (y - 12) + 'px';
+    document.body.appendChild(img);
+    console.log('Image appended at coordinates:', x, y);
+    setTimeout(function() {
+        img.remove();
+    }, 9999999999);
+}
+function changeColor() {
             document.body.style.backgroundColor =
                 'rgb(' + Math.round(Math.random() * 255) +
                 ',' + Math.round(Math.random() * 255) +
@@ -98,11 +101,14 @@
         function showExplosionImage() {
             var explosionOverlay = document.getElementById('explosionOverlay');
             explosionOverlay.style.display = 'block';
+            const audio = new Audio();
+            audio.src = "./explode.mp4"; 
+            audio.play();
         }
 
         function playEffect() {
             const audio = new Audio();
-            audio.src = "./videoplayback.mp4"; // adjust the path to your audio file
+            audio.src = "./videoplayback.mp4";
             audio.play();
         }
 
@@ -114,7 +120,79 @@
         function goJail() {
             var jailOverlay = document.getElementById('jailOverlay');
             jailOverlay.style.display = 'block';
-        }
-    </script>
+        } 
+    function becomeStrong() {
+        const audio = new Audio();
+        audio.src = "./powerup.mp4";
+        audio.play();
+        document.body.addEventListener('click', handleClick);
+    }
+
+    function getHurt() {
+    var button = document.getElementById("myButton");
+    if (button.innerHTML === "Don't click me") {
+        button.innerHTML = "OWWW!!!!";
+    } else if (button.innerHTML === "OWWW!!!!") {
+        button.innerHTML = "OWWW!!!!! STOP CLICKING!!";
+    } else if (button.innerHTML === "OWWW!!!!! STOP CLICKING!!") {
+        button.innerHTML = "SERIOUSLY! IT HURTS!!";
+    } else {
+        button.innerHTML = "I'm numb to it now.";
+    }
+}
+    function showAd() {
+    var images = [
+        'https://th.bing.com/th?id=R.fa83c57156cb7c490089b4f8078ab9a9&rik=lmTKWB2uOzIKpA&riu=http%3a%2f%2fwww.toiletrepairtomball.com%2ffix-leaking-toilet-tank%2fdiscount-plumbing-coupons.jpg&ehk=ChtTnzn54G0VHXtmPbE23Jjry442cFWwWrOeb9RXnro%3d&risl=&pid=ImgRaw&r=0',
+        'https://www.icareplumbing.com.au/wp-content/uploads/2023/05/coupon-1.gif',
+        'https://www.thextremexperience.com/wp-content/uploads/2021/12/unnamed-file-1024x1024.jpg',
+        'https://i.pinimg.com/736x/d9/54/b2/d954b2c1b2c114d19e9108c03f8bb7a4.jpg',
+        'https://th.bing.com/th?id=OIP._gq9mezUOuATZ0VwkrHylQHaEd&h=360&w=598&rs=1&pid=ImgDetMain',
+        'https://hip2save.com/wp-content/uploads/2013/10/screen-shot-2013-10-27-at-11-02-07-am.png',
+        'https://th.bing.com/th/id/OIP.bQM_Ai5SJSeQ0sP0s5kgKQAAAA?w=336&h=336&rs=1&pid=ImgDetMain',
+    ];
+    var randomIndex = Math.floor(Math.random() * images.length);
+    var randomImage = images[randomIndex];
+    var x = Math.random() * (window.innerWidth - 100);
+    var y = Math.random() * (window.innerHeight - 100);
+    var img = document.createElement('img');
+    img.src = randomImage;
+    img.className = 'clickedImage';
+    img.style.position = 'fixed';
+    img.style.left = x + 'px';
+    img.style.top = y + 'px';
+    img.style.height = '100px';
+    img.style.width = 'auto';
+    document.body.appendChild(img);
+    console.log('Image appended at coordinates:', x, y);
+    setTimeout(function() {
+        img.remove();
+    }, 99999999999);
+}
+    function lightsOut() {
+    document.body.style.backgroundColor = "black";
+    var buttons = document.getElementsByTagName("button");
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].style.backgroundColor = "black";
+        buttons[i].style.color = "black"
+    }
+}
+function randomSound() {
+    var sounds = [
+        'videoplayback.mp4',
+        'powerup.mp4',
+        'ooh.mp4',
+        'explode.mp4',
+        'boom.mp4',
+        'fail.mp4',
+        'car.mp4',
+        'laugh.mp4',
+        'wow.mp4',
+        'womp.mp4',
+    ];
+    var randomIndex = Math.floor(Math.random() * sounds.length);
+    var audio = new Audio(sounds[randomIndex]);
+    audio.play();
+}
+</script>
 </body>
 </html>
